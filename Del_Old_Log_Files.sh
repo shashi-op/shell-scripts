@@ -5,7 +5,7 @@
 #use while loop to see each file of a file using 'IFR' and READ cmds
 
 #variable for Source directory
-SOURCE_DIR="/tmp/shellscripts"
+SOURCE_DIR="/tmp/shellscripts-logs"
 
 R="\e[31m"  # Red color code
 G="\e[32m"  #Green color ccode
@@ -28,10 +28,10 @@ if [ -z "$FILES_TO_DEL" ]; then #-z checks if the string inside $FILES_TO_DEL is
 fi
 
 # Use while loop to process files
-echo -e "$G Deleting files... $N"
+echo -e "$Y Deleting files... $N"
 while IFS= read -r line; do
     echo "Deleting file: $line"
-    rm "$line"
+    rm -rf "$line"
 done <<< "$FILES_TO_DEL"
 
 echo -e "$G Cleanup complete! $N"
