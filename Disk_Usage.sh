@@ -17,8 +17,10 @@ do
    if [ "$USAGE" -ge "$THRESHOLD_USAGE" ]
     then
         message+="High Disk Usage on $PARTITION: $USAGE%\n"
-        
+
     fi 
 done <<< $DISK_USAGE
 
 echo -e "message: $message"
+
+sh mail.sh "DevOps Team" "High Disk Usage" "$message" "kodandashashidhar.com" "ALERT High Disk Usage"
